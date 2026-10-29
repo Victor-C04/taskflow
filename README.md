@@ -328,6 +328,21 @@ TaskFlow demonstrates practical full-stack development concepts, including:
 - Integrating frontend and backend services.
 - Deploying a complete application using Vercel, Render, and Neon.
 
+
+## Application Screenshots
+
+### Login Page
+![TaskFlow Login](screenshots/login.png)
+
+### Dashboard Overview
+![TaskFlow Dashboard](screenshots/dashboard.png)
+
+### Workflow Board
+![TaskFlow Workflow](screenshots/workflow.png)
+
+### Create New Task
+![TaskFlow Create Task](screenshots/create-task.png)
+
 ---
 
 ## Author
