@@ -1,0 +1,65 @@
+
+<div class="auth-page">
+  <div class="auth-card">
+
+    <div class="brand">
+      <div class="brand-icon">T</div>
+      <h1>TaskFlow</h1>
+      <p>Task Workflow Management</p>
+    </div>
+
+    <h2>Welcome back</h2>
+    <p class="subtitle">Sign in to manage your tasks.</p>
+
+    <form (ngSubmit)="onLogin()" #loginForm="ngForm">
+
+      <div class="form-group">
+        <label for="email">Email address</label>
+        <input
+          id="email"
+          type="email"
+          name="email"
+          [(ngModel)]="email"
+          placeholder="Enter your email"
+          autocomplete="username"
+          required
+          email
+        />
+      </div>
+
+      <div class="form-group">
+        <label for="password">Password</label>
+        <input
+          id="password"
+          type="password"
+          name="password"
+          [(ngModel)]="password"
+          placeholder="Enter your password"
+          autocomplete="current-password"
+          required
+        />
+      </div>
+
+      @if (errorMessage()) {
+        <div class="error-message" role="alert">
+          {{ errorMessage() }}
+        </div>
+      }
+
+      <button
+        type="submit"
+        class="login-button"
+        [disabled]="loading() || loginForm.invalid"
+      >
+        {{ loading() ? 'Signing in...' : 'Sign In' }}
+      </button>
+
+    </form>
+
+    <div class="footer">
+      Don't have an account?
+      <a routerLink="/register">Create account</a>
+    </div>
+
+  </div>
+</div>

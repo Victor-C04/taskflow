@@ -1,0 +1,42 @@
+# Environment variables and secrets
+.env
+.env.*
+!.env.example
+
+# Dependencies
+node_modules/
+
+# Angular build output
+dist/
+.angular/
+coverage/
+
+# NestJS build output
+dist/
+
+# Logs
+*.log
+npm-debug.log*
+
+# Local files
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+
+# Prisma generated client
+src/generated/
+**/src/generated/
+
+# TypeScript build cache
+*.tsbuildinfo
+
+# AI assistant configuration files
+**/.agents/
+**/.claude/
+
+# Additional AI assistant configuration
+**/.cursor/
+**/.devin/
+**/.windsurf/
+**/.aider/

@@ -1,0 +1,49 @@
+
+.sidebar {
+  width: 240px;
+  min-height: 100%;
+  background: #172033;
+  color: white;
+  padding: 24px 16px;
+  box-sizing: border-box;
+}
+
+.logo {
+  padding: 8px 12px 28px;
+  border-bottom: 1px solid #344054;
+}
+
+.logo h2 {
+  margin: 0;
+  font-size: 25px;
+}
+
+.logo p {
+  color: #aab4c5;
+  font-size: 12px;
+  margin-top: 6px;
+}
+
+.nav-menu {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-top: 30px;
+}
+
+.nav-menu a {
+  padding: 13px 15px;
+  border-radius: 8px;
+  color: #d0d5dd;
+  text-decoration: none;
+  font-size: 14px;
+}
+
+.nav-menu a:hover {
+  background: #29364d;
+}
+
+.nav-menu a.active {
+  background: #2563eb;
+  color: white;
+}

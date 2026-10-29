@@ -1,0 +1,30 @@
+
+<header class="header">
+
+  <div class="header-title">
+    <h2>Task Workflow Management</h2>
+    <p>Manage and track your daily tasks</p>
+  </div>
+
+  <div class="user-profile">
+
+    <div class="avatar">
+      {{ userInitial }}
+    </div>
+
+    <div class="user-details">
+      <span class="user-name">{{ userName }}</span>
+      <span class="user-role">{{ userRole }}</span>
+    </div>
+
+    <button
+      type="button"
+      class="logout-button"
+      (click)="logout()"
+    >
+      Logout
+    </button>
+
+  </div>
+
+</header>

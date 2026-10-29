@@ -1,0 +1,98 @@
+
+<div class="dashboard">
+
+  <div class="dashboard-heading">
+    <h1>Dashboard Overview</h1>
+    <p>Monitor your tasks and workflow progress</p>
+  </div>
+
+  <!-- Statistics Cards -->
+  <div class="stats-grid">
+
+    <div class="stat-card">
+      <h3>Total Tasks</h3>
+      <h2>{{ totalTasks() }}</h2>
+      <p>All workflow tasks</p>
+    </div>
+
+    <div class="stat-card todo">
+      <h3>To Do</h3>
+      <h2>{{ todoTasks() }}</h2>
+      <p>Waiting to start</p>
+    </div>
+
+    <div class="stat-card progress">
+      <h3>In Progress</h3>
+      <h2>{{ inProgressTasks() }}</h2>
+      <p>Currently being worked on</p>
+    </div>
+
+    <div class="stat-card review">
+      <h3>In Review</h3>
+      <h2>{{ inReviewTasks() }}</h2>
+      <p>Waiting for review</p>
+    </div>
+
+    <div class="stat-card completed">
+      <h3>Completed</h3>
+      <h2>{{ completedTasks() }}</h2>
+      <p>Successfully finished</p>
+    </div>
+
+  </div>
+
+  <!-- Recent Tasks -->
+  <div class="recent-tasks">
+
+    <h2>Recent Tasks</h2>
+
+    <div class="table-wrapper">
+      <table>
+
+        <thead>
+          <tr>
+            <th>Task Name</th>
+            <th>Assigned To</th>
+            <th>Priority</th>
+            <th>Status</th>
+            <th>Due Date</th>
+          </tr>
+        </thead>
+
+        <tbody>
+          <tr *ngFor="let task of tasks()">
+
+            <td>{{ task.title }}</td>
+
+            <td>{{ task.assignedTo }}</td>
+
+            <td>
+              <span class="priority"
+                    [ngClass]="task.priority.toLowerCase()">
+                {{ task.priority }}
+              </span>
+            </td>
+
+            <td>
+              <span class="status"
+                    [ngClass]="{
+                      'status-todo': task.status === 'To Do',
+                      'status-progress': task.status === 'In Progress',
+                      'status-review': task.status === 'In Review',
+                      'status-completed': task.status === 'Completed'
+                    }">
+                {{ task.status }}
+              </span>
+            </td>
+
+            <td>{{ task.dueDate | date:'dd MMM yyyy' }}</td>
+
+          </tr>
+        </tbody>
+
+      </table>
+    </div>
+
+  </div>
+
+</div>

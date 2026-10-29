@@ -1,0 +1,122 @@
+
+<div class="form-overlay">
+
+  <div class="form-container">
+
+    <div class="form-header">
+      <h2>{{ task ? 'Edit Task' : 'Create New Task' }}</h2>
+
+      <button
+        type="button"
+        class="close-btn"
+        (click)="onCancel()">
+        &times;
+      </button>
+    </div>
+
+    <form [formGroup]="taskForm" (ngSubmit)="onSubmit()">
+
+      <div class="form-group">
+        <label for="task-title">Task Title *</label>
+        <input
+          id="task-title"
+          type="text"
+          formControlName="title"
+          placeholder="Enter task title">
+
+        <small
+          *ngIf="taskForm.get('title')?.touched &&
+                 taskForm.get('title')?.hasError('required')">
+          Task title is required.
+        </small>
+
+        <small
+          *ngIf="taskForm.get('title')?.touched &&
+                 taskForm.get('title')?.hasError('maxlength')">
+          Title must be 100 characters or fewer.
+        </small>
+      </div>
+
+      <div class="form-group">
+        <label for="task-description">Description</label>
+        <textarea
+          id="task-description"
+          formControlName="description"
+          rows="3"
+          placeholder="Enter task description">
+        </textarea>
+      </div>
+
+      <div class="form-row">
+
+        <div class="form-group">
+          <label for="task-status">Status *</label>
+          <select id="task-status" formControlName="status">
+            <option *ngFor="let status of statuses" [value]="status">
+              {{ status }}
+            </option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label for="task-priority">Priority *</label>
+          <select id="task-priority" formControlName="priority">
+            <option *ngFor="let priority of priorities" [value]="priority">
+              {{ priority }}
+            </option>
+          </select>
+        </div>
+
+      </div>
+
+      <div class="form-group">
+        <label for="task-assignee">Assigned To *</label>
+        <input
+          id="task-assignee"
+          type="text"
+          formControlName="assignedTo"
+          placeholder="Enter assignee name">
+
+        <small
+          *ngIf="taskForm.get('assignedTo')?.touched &&
+                 taskForm.get('assignedTo')?.invalid">
+          Assignee is required.
+        </small>
+      </div>
+
+      <div class="form-group">
+        <label for="task-date">Due Date *</label>
+        <input
+          id="task-date"
+          type="date"
+          formControlName="dueDate">
+
+        <small
+          *ngIf="taskForm.get('dueDate')?.touched &&
+                 taskForm.get('dueDate')?.invalid">
+          Due date is required.
+        </small>
+      </div>
+
+      <div class="form-actions">
+
+        <button
+          type="button"
+          class="cancel-btn"
+          (click)="onCancel()">
+          Cancel
+        </button>
+
+        <button
+          type="submit"
+          class="save-btn">
+          {{ task ? 'Update Task' : 'Create Task' }}
+        </button>
+
+      </div>
+
+    </form>
+
+  </div>
+
+</div>

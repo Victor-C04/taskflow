@@ -1,0 +1,14 @@
+-- CreateTable
+CREATE TABLE "Task" (
+    "id" SERIAL NOT NULL,
+    "title" TEXT NOT NULL,
+    "description" TEXT NOT NULL DEFAULT '',
+    "status" TEXT NOT NULL DEFAULT 'To Do',
+    "priority" TEXT NOT NULL DEFAULT 'Medium',
+    "assignedTo" TEXT NOT NULL,
+    "dueDate" TIMESTAMP(3) NOT NULL,
+    "createdAt" TIMESTAMP(3) NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    "updatedAt" TIMESTAMP(3) NOT NULL,
+
+    CONSTRAINT "Task_pkey" PRIMARY KEY ("id")
+);

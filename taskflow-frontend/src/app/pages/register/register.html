@@ -1,0 +1,101 @@
+
+<div class="auth-page">
+  <div class="auth-card">
+
+    <div class="brand">
+      <div class="brand-icon">T</div>
+      <h1>TaskFlow</h1>
+      <p>Task Workflow Management</p>
+    </div>
+
+    <h2>Create an account</h2>
+    <p class="subtitle">
+      Register to start managing your tasks.
+    </p>
+
+    <form (ngSubmit)="onRegister()" #registerForm="ngForm">
+
+      <div class="form-group">
+        <label for="name">Full name</label>
+        <input
+          id="name"
+          type="text"
+          name="name"
+          [(ngModel)]="name"
+          placeholder="Enter your full name"
+          autocomplete="name"
+          required
+        />
+      </div>
+
+      <div class="form-group">
+        <label for="email">Email address</label>
+        <input
+          id="email"
+          type="email"
+          name="email"
+          [(ngModel)]="email"
+          placeholder="Enter your email"
+          autocomplete="email"
+          required
+          email
+        />
+      </div>
+
+      <div class="form-group">
+        <label for="password">Password</label>
+        <input
+          id="password"
+          type="password"
+          name="password"
+          [(ngModel)]="password"
+          placeholder="Create a password"
+          autocomplete="new-password"
+          minlength="8"
+          maxlength="72"
+          required
+        />
+      </div>
+
+      <div class="form-group">
+        <label for="confirmPassword">Confirm password</label>
+        <input
+          id="confirmPassword"
+          type="password"
+          name="confirmPassword"
+          [(ngModel)]="confirmPassword"
+          placeholder="Confirm your password"
+          autocomplete="new-password"
+          required
+        />
+      </div>
+
+      @if (errorMessage()) {
+        <div class="error-message" role="alert">
+          {{ errorMessage() }}
+        </div>
+      }
+
+      @if (successMessage()) {
+        <div class="success-message" role="status">
+          {{ successMessage() }}
+        </div>
+      }
+
+      <button
+        type="submit"
+        class="register-button"
+        [disabled]="loading() || registerForm.invalid"
+      >
+        {{ loading() ? 'Creating account...' : 'Create Account' }}
+      </button>
+
+    </form>
+
+    <div class="footer">
+      Already have an account?
+      <a routerLink="/login">Sign In</a>
+    </div>
+
+  </div>
+</div>
