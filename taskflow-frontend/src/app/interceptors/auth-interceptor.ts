@@ -4,6 +4,8 @@ import {
   HttpInterceptorFn
 } from '@angular/common/http';
 
+import { API_BASE_URL } from '../config/api.config';
+
 import { Auth } from '../services/auth';
 
 export const authInterceptor: HttpInterceptorFn = (req, next) => {
@@ -15,10 +17,10 @@ export const authInterceptor: HttpInterceptorFn = (req, next) => {
   // Only attach JWT to our NestJS Task API.
   // Never send it to unrelated external services.
   const isTaskApi =
-    req.url.startsWith('http://localhost:3000/tasks') &&
+    req.url.startsWith(`${API_BASE_URL}/tasks`) &&
     (
-      req.url === 'http://localhost:3000/tasks' ||
-      req.url.startsWith('http://localhost:3000/tasks/')
+      req.url === `${API_BASE_URL}/tasks` ||
+      req.url.startsWith(`${API_BASE_URL}/tasks/`)
     );
 
   if (token && isTaskApi) {

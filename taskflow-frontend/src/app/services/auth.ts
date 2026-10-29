@@ -5,6 +5,8 @@ import {
   computed
 } from '@angular/core';
 
+import { API_BASE_URL } from '../config/api.config';
+
 import { HttpClient } from '@angular/common/http';
 import { Observable, tap } from 'rxjs';
 
@@ -39,7 +41,7 @@ export interface LoginRequest {
 })
 export class Auth {
 
-  private readonly apiUrl = 'http://localhost:3000/auth';
+  private readonly apiUrl = `${API_BASE_URL}/auth`;
   private readonly storageKey = 'taskflow_session';
 
   private readonly tokenSignal = signal<string | null>(null);

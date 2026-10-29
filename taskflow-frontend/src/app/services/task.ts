@@ -1,6 +1,7 @@
 
 import { Injectable, signal } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import { API_BASE_URL } from '../config/api.config';
 
 import { Task, TaskStatus } from '../models/task.model';
 
@@ -9,7 +10,7 @@ import { Task, TaskStatus } from '../models/task.model';
 })
 export class TaskService {
 
-  private readonly apiUrl = 'http://localhost:3000/tasks';
+  private readonly apiUrl = `${API_BASE_URL}/tasks`;
 
   private readonly tasksSignal = signal<Task[]>([]);
 
